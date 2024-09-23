@@ -1,4 +1,4 @@
-# the Return Journey (Frontend Developer Coding Assignment)
+# The Return Journey (Frontend Developer Coding Assignment)
 
 I built a React application that efficiently displays and filters a list of items. By focusing on optimization techniques and state management, I ensured smooth performance and responsiveness.
 
@@ -27,9 +27,7 @@ To get the application running on your local machine, follow these steps:
     npm install
     npm run dev
     ```
-
-## Testing
-Unit tests for the Redux slice and components have been written. To run the tests, use:
+4. Unit tests for the Redux slice and components have been written. To run the tests, use:
     ```bash
     npm test
-    ```
+    ``` 
