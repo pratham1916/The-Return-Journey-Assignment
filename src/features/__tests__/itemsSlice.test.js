@@ -1,49 +1,76 @@
 import itemsReducer, { setSearchTerm } from '../itemsSlice';
+import itemListdata from '../itemListdata.json';
 
+// Test case for initial state of the reducer
 test('should return the initial state', () => {
     expect(itemsReducer(undefined, {})).toEqual({
-        items: [
-            'JavaScript', 'Python', 'Java', 'C#', 'C++', 'Ruby', 'PHP', 'Swift',
-            'Kotlin', 'Go', 'TypeScript', 'Rust', 'Scala', 'Dart', 'Elixir',
-            'Clojure', 'Haskell', 'R', 'Objective-C', 'Perl', 'Shell', 'HTML',
-            'CSS', 'React', 'Angular', 'Vue.js', 'Node.js', 'Express.js',
-            'Django', 'Flask', 'Ruby on Rails', 'Spring', 'Laravel',
-            'ASP.NET', 'GraphQL', 'MongoDB', 'MySQL', 'PostgreSQL', 'SQLite',
-            'Redis', 'Elasticsearch', 'Docker', 'Kubernetes', 'AWS',
-            'Azure', 'Google Cloud', 'Firebase', 'Heroku', 'Vite', 'Webpack'
-        ],
-        searchTerm: ''
+        items: itemListdata.items, // Use the initial item list
+        searchTerm: '',
+        currentPage: 1,
+        itemsPerPage: 35,
     });
 });
 
-test('should handle search term change to "JavaScript"', () => {
-    const previousState = { items: [], searchTerm: '' };
-    expect(itemsReducer(previousState, setSearchTerm('JavaScript'))).toEqual({
-        items: [],
-        searchTerm: 'JavaScript'
+// Test cases for handling search term changes
+test('should handle search term change to "Venice Grand Canal"', () => {
+    const previousState = { 
+        items: itemListdata.items, // Use the initial item list
+        searchTerm: '',
+        currentPage: 1,
+        itemsPerPage: 35,
+    };
+    expect(itemsReducer(previousState, setSearchTerm('Venice Grand Canal'))).toEqual({
+        items: itemListdata.items,
+        searchTerm: 'Venice Grand Canal', 
+        currentPage: 1,
+        itemsPerPage: 35,
     });
 });
 
-test('should handle search term change to "Python"', () => {
-    const previousState = { items: [], searchTerm: '' };
-    expect(itemsReducer(previousState, setSearchTerm('Python'))).toEqual({
-        items: [],
-        searchTerm: 'Python'
+// Repeat test cases for other search terms
+test('should handle search term change to "Agra Taj Mahal"', () => {
+    const previousState = { 
+        items: itemListdata.items,
+        searchTerm: '',
+        currentPage: 1,
+        itemsPerPage: 35,
+    };
+    expect(itemsReducer(previousState, setSearchTerm('Agra Taj Mahal'))).toEqual({
+        items: itemListdata.items,
+        searchTerm: 'Agra Taj Mahal',
+        currentPage: 1,
+        itemsPerPage: 35,
     });
 });
 
-test('should handle search term change to "MySQL"', () => {
-    const previousState = { items: [], searchTerm: '' };
-    expect(itemsReducer(previousState, setSearchTerm('MySQL'))).toEqual({
-        items: [],
-        searchTerm: 'MySQL'
+// Repeat test cases for other search terms
+test('should handle search term change to "Havana Old Town"', () => {
+    const previousState = { 
+        items: itemListdata.items,
+        searchTerm: '',
+        currentPage: 1,
+        itemsPerPage: 35,
+    };
+    expect(itemsReducer(previousState, setSearchTerm('Havana Old Town'))).toEqual({
+        items: itemListdata.items,
+        searchTerm: 'Havana Old Town',
+        currentPage: 1,
+        itemsPerPage: 35,
     });
 });
 
-test('should handle search term change to "Firebase"', () => {
-    const previousState = { items: [], searchTerm: '' };
-    expect(itemsReducer(previousState, setSearchTerm('Firebase'))).toEqual({
-        items: [],
-        searchTerm: 'Firebase'
+// Repeat test cases for other search terms
+test('should handle search term change to "Vegas"', () => {
+    const previousState = { 
+        items: itemListdata.items,
+        searchTerm: '',
+        currentPage: 1,
+        itemsPerPage: 35,
+    };
+    expect(itemsReducer(previousState, setSearchTerm('Vegas'))).toEqual({
+        items: itemListdata.items,
+        searchTerm: 'Vegas',
+        currentPage: 1,
+        itemsPerPage: 35,
     });
 });

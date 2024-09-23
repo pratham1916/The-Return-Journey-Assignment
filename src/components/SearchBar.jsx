@@ -1,30 +1,23 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { setSearchTerm } from '../features/itemsSlice';
+import { debounce } from 'lodash';
 
 const SearchBar = () => {
   const dispatch = useDispatch();
 
-  const handleSearch = (e) => {
-    dispatch(setSearchTerm(e.target.value));
-  };
+  const handleSearch = useCallback(
+    debounce((e) => {
+      dispatch(setSearchTerm(e.target.value)); // Dispatch search term to the store
+    }, 300),[]
+  );
 
   return (
     <input
       type="text"
       placeholder="Search items..."
-      onChange={handleSearch}
-      style={{
-        padding: '10px',
-        border: '2px solid #ccc',
-        borderRadius: '4px',
-        width: '100%',
-        maxWidth: '400px',
-        fontSize: '16px',
-        boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-        outline: 'none',
-        transition: 'border-color 0.3s',
-      }}
+      onChange={handleSearch} // Trigger search on input change
+      className="search-input"
     />
   );
 };
